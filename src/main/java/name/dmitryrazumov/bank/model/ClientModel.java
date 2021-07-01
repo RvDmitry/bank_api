@@ -51,19 +51,11 @@ public class ClientModel {
             return false;
         }
         ClientModel that = (ClientModel) o;
-        return id == that.id;
+        return id == that.id && Objects.equals(name, that.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
-    }
-
-    @Override
-    public String toString() {
-        return "ClientModel{"
-                + "id=" + id
-                + ", name='" + name + '\''
-                + '}';
+        return Objects.hash(id, name);
     }
 }

@@ -75,21 +75,14 @@ public class AccountModel {
             return false;
         }
         AccountModel that = (AccountModel) o;
-        return id == that.id;
+        return id == that.id
+                && amount == that.amount
+                && Objects.equals(number, that.number)
+                && Objects.equals(client, that.client);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
-    }
-
-    @Override
-    public String toString() {
-        return "AccountModel{"
-                + "id=" + id
-                + ", amount=" + amount
-                + ", number='" + number + '\''
-                + ", client=" + client
-                + '}';
+        return Objects.hash(id, amount, number, client);
     }
 }

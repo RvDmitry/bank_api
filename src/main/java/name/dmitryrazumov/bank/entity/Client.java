@@ -72,20 +72,13 @@ public class Client {
             return false;
         }
         Client client = (Client) o;
-        return id == client.id;
+        return id == client.id
+                && Objects.equals(name, client.name)
+                && Objects.equals(accounts, client.accounts);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
-    }
-
-    @Override
-    public String toString() {
-        return "Client{"
-                + "id=" + id
-                + ", name='" + name + '\''
-                + ", accounts=" + accounts
-                + '}';
+        return Objects.hash(id, name, accounts);
     }
 }

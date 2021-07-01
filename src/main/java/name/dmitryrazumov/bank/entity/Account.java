@@ -100,22 +100,15 @@ public class Account {
             return false;
         }
         Account account = (Account) o;
-        return id == account.id;
+        return id == account.id
+                && amount == account.amount
+                && Objects.equals(number, account.number)
+                && Objects.equals(cards, account.cards)
+                && Objects.equals(client, account.client);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
-    }
-
-    @Override
-    public String toString() {
-        return "Account{"
-                + "id=" + id
-                + ", amount=" + amount
-                + ", number='" + number + '\''
-                + ", cards=" + cards
-                + ", client=" + client
-                + '}';
+        return Objects.hash(id, amount, number, cards, client);
     }
 }

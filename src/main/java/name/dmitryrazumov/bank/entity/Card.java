@@ -72,20 +72,13 @@ public class Card {
             return false;
         }
         Card card = (Card) o;
-        return id == card.id;
+        return id == card.id
+                && Objects.equals(number, card.number)
+                && Objects.equals(account, card.account);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
-    }
-
-    @Override
-    public String toString() {
-        return "Card{"
-                + "id=" + id
-                + ", number='" + number + '\''
-                + ", account=" + account
-                + '}';
+        return Objects.hash(id, number, account);
     }
 }
